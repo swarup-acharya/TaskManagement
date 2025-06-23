@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function Header({setAdddiv,setEditTaskdiv}) {
+function Header({setAdddiv}) {
     const navigate=useNavigate()
     const logout = async()=>{
         try {
@@ -31,9 +31,6 @@ function Header({setAdddiv,setEditTaskdiv}) {
             <div className='flex gap-8 '>
                 <button className='hover:text-blue-800 transition-all duration-300' onClick={()=>setAdddiv("block")}>
                     Add Task
-                    </button>
-                <button className='hover:text-blue-800 transition-all duration-300' onClick={()=>setEditTaskdiv("block")}>
-                    Update/Delete
                     </button>
                 <button className='hover:text-red-600 transition-all duration-300' onClick={logout}>
                     <IoLogOutOutline/>

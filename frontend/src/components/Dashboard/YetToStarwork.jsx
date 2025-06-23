@@ -1,8 +1,8 @@
 import React from 'react'
 import TaskCard from './TaskCard'
 
-function YetToStarwork({task, setEditTaskdiv}) {
-    console.log("task",task);
+function YetToStarwork({task}) {
+    // console.log("task",task);
     
     
   return (

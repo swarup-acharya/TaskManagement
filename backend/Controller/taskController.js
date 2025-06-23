@@ -7,7 +7,7 @@ const AddTask= async(req,res)=>{
             if(!title || !description){
                 return res.status(400).json({message:"All fields are required",success:false})
             }
-            if(title.length<5 ){
+            if(title.length<3 ){
                 return res.status(400).json({message:"Title have must 6 character",success:false})
             }
             if(description.length<5 ){
@@ -41,7 +41,7 @@ const UpdateTask= async(req,res)=>{
                 return res.status(400).json({message:"Description have must 6 character",success:false})
             }
             await task.findByIdAndUpdate(id,{title,description,priority,status},{new:true})
-             return res.status(200).json({message:"Task Updated", sucess:true})
+             return res.status(200).json({message:"Task are Updated", sucess:true})
             
         } catch (error) {
             res.status(500).json({message:"internal error",success:false})
@@ -63,19 +63,31 @@ const GetTask= async(req,res)=>{
 }
 
 
-const GetTaskByID= async(req,res)=>{
-        try {
-            const{id}=req.params
-           const taskdata=await task.findById(id)
-           if(taskdata){
-               return res.status(200).json({message:"Task Updated", data:taskdata ,sucess:true})
-           }
-            
-        } catch (error) {
-            res.status(500).json({message:"internal error",success:false})
-            
-        }
-}
+const GetTaskByID = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const taskdata = await task.findById(id);
+
+    if (taskdata) {
+      return res.status(200).json({
+        message: "Task Found",
+        data: taskdata,
+        success: true
+      });
+    } else {
+      return res.status(404).json({
+        message: "Task Not Found",
+        success: false
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+      error: error.message
+    });
+  }
+};
 
 const DeleteTask= async(req,res)=>{
         try {

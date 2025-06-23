@@ -34,10 +34,10 @@ function Dasboard() {
       }
     }
     fetchTasks()
-    if(window.localStorage.getItem("editTaskId"))
+    if(window.sessionStorage.getItem("editTaskId"))
     {
       setEditTaskdiv("block")
-      setEditTaskId(window.localStorage.getItem("editTaskId"))
+      setEditTaskId(window.sessionStorage.getItem("editTaskId"))
     }
   }, [adddiv])
 
@@ -48,7 +48,7 @@ function Dasboard() {
   return (
     <div className='w-full relative'>
       <div className='bg-white'>
-        <Header setAdddiv={setAdddiv} setEditTaskdiv={setEditTaskdiv} />
+        <Header setAdddiv={setAdddiv}  />
       </div>
 
       <div className='px-12 py-4 my-2 flex gap-12 bg-gray-100 min-h[89vh] max-h-auto'>
@@ -56,7 +56,7 @@ function Dasboard() {
           <Title title={"Task Yet To Start"} />
           <div className='pt-2 '>
             {/* {Tasks && <YetToStarwork  task={Tasks[0].yetToStart}/>}  */}
-            {Tasks && <YetToStarwork task={Tasks[0]?.yetToStart} setEditTaskdiv={setEditTaskdiv} />}
+            {Tasks && <YetToStarwork task={Tasks[0]?.yetToStart} />}
 
 
           </div>
@@ -64,13 +64,13 @@ function Dasboard() {
         <div className='w-1/3 '>
           <Title title={"Task In Progress"} />
           <div className='pt-2 '>
-            {Tasks && <Inprogresswork task={Tasks[1]?.inProgress} setEditTaskdiv={setEditTaskdiv} />}
+            {Tasks && <Inprogresswork task={Tasks[1]?.inProgress}  />}
           </div>
         </div>
         <div className='w-1/3 '>
           <Title title={"Task In Completed"} />
           <div className='pt-2 '>
-            {Tasks && <Completework task={Tasks[2]?.completed} setEditTaskdiv={setEditTaskdiv} />}
+            {Tasks && <Completework task={Tasks[2]?.completed}  />}
           </div>
         </div>
       </div>

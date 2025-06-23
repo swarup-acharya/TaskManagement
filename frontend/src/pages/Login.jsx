@@ -12,6 +12,7 @@ function Login() {
             email:"",
             password:""
         })
+        
         const handleChange=(e)=>{
             setValue({...value,[e.target.name]:e.target.value})
         }
