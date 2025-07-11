@@ -10,6 +10,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import Login from './Login'
 import EditTask from '../components/Dashboard/EditTask'
+import Hero from '../components/Hero'
 
 function Dasboard() {
   const [adddiv, setAdddiv] = useState("hidden")
@@ -46,12 +47,15 @@ function Dasboard() {
 
 
   return (
-    <div className='w-full relative'>
+    <div className='w-full relative  bg-orange-100'>
       <div className='bg-white'>
         <Header setAdddiv={setAdddiv}  />
       </div>
+      <div>
+        <Hero/>
+      </div>
 
-      <div className='px-12 py-4 my-2 flex gap-12 bg-gray-100 min-h[89vh] max-h-auto'>
+      <div className='px-12 py-4 my-2 flex gap-12 min-h[89vh] max-h-auto'>
         <div className='w-1/3 '>
           <Title title={"Task Yet To Start"} />
           <div className='pt-2 '>

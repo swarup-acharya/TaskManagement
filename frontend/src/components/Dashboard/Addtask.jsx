@@ -20,8 +20,8 @@ function Addtask({setAdddiv}) {
             const responce= await axios.post("http://localhost:5400/api/v1/addtask",value,{
                 withCredentials:true
             })
-            console.log(response.data.message);
-            alert(response.data.message)
+            console.log(responce.data.message);
+            alert(responce.data.message)
             setAdddiv("hidden")
             setValue({
                 title:"",
@@ -31,8 +31,8 @@ function Addtask({setAdddiv}) {
             })
             
         } catch (error) {
-            console.log(error.response.data.message);
-            alert(error.response.data.message)
+            console.log(error.responce.data.message);
+            alert(error.responce.data.message)
             
         }
     }
